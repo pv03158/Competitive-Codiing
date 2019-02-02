@@ -15,6 +15,7 @@ main(){
 				counter++;
 				break;
 			}
+			
 		}
 	}
 	cout<<counter;
