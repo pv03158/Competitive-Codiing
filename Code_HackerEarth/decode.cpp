@@ -11,7 +11,8 @@ main(){
 		cin>>codes[i][1];
 	}
 	length_of_enc = codes[0][1].length();
-	cin>>huff_code;
+	cin.ignore();
+	getline(cin,huff_code);
 	for(int j = 0;j <= huff_code.length();j += length_of_enc){
 		slc = huff_code.substr(j,length_of_enc);
 		for(int k = 0;k < N;k++){

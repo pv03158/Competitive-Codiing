@@ -1,38 +1,35 @@
 #include <iostream>
-#include <vector>
+#include <algorithm>
 #include <cmath>
 
 using namespace std;
+string bc(long long int num,long long int bits ){
+	string bin_repr,rev_bin_repr;
+	for(;num > 0; num /= 2){
+		bin_repr += to_string(num%2);
+	}
+	while (bin_repr.length() < bits)
+		bin_repr += "0";
+	rev_bin_repr = bin_repr;
+	reverse(bin_repr.begin(),bin_repr.end());
+	return bin_repr+rev_bin_repr;
+}
+
 int
 main(){
-	vector <string> gc,pn;
-	pn.push_back("66");
-	pn.push_back("77");
-	int N,start=0,end=2,counter=2,iter=1;
+	string str;
+	long long int N,sum=0,bits,diff;
 	cin>>N;
-	while(counter < N){
-		iter += 1;
-		for(int i = start; i < end; i++){
-			gc.push_back("6" + pn[i] + "6");
-			counter++;
-			if(counter == N)
-				break;
-		}
-		for(int i = start; i < end; i++){
-			gc.push_back("7" + pn[i] + "7");
-			counter++;
-			if(counter == N)
-				break;
-		}
-		pn.clear();
-		pn.resize(0);
-		pn = gc;
-		gc.clear();
-		gc.resize(0);
-		int size = end - start;
-		N -= size;
-		counter -= size;
-		end = pow(2,iter);
+	for( bits = 1;; bits++){
+		if(N <= sum + pow(2,bits))
+			break;
+		else
+			sum += pow(2,bits);
 	}
-	cout<<pn[N-1];
+	N - sum == 0 ? diff = pow(2,bits-1)-1 : diff = N - sum -1;
+	str = bc(diff,bits);
+	for(long long int i=0;i<str.length();i++)
+		str[i] == '0' ? str[i] = '6' : str[i] = '7';
+	cout<<str;
+	return 0;
 }
