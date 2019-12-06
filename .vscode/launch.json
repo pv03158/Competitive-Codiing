@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - datatype",
+            "request": "launch",
+            "mainClass": "datatype"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - datatypes",
+            "request": "launch",
+            "mainClass": "datatypes"
+        }
+    ]
+}
