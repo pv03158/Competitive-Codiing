@@ -2,6 +2,12 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - EndOfFile",
+            "request": "launch",
+            "mainClass": "EndOfFile"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - datatype",
             "request": "launch",
             "mainClass": "datatype"
