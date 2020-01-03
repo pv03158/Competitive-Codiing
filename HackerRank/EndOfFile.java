@@ -7,7 +7,6 @@ public class EndOfFile{
         Scanner input = new Scanner(System.in);
         Vector array = new Vector();
         while (true){
-            System.out.println(input.hasNextLine());
             if (input.hasNext())
                 array.add(input.nextLine());
             else
