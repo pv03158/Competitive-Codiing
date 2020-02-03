@@ -2,6 +2,30 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - BeautifulInteger",
+            "request": "launch",
+            "mainClass": "BeautifulInteger"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - ExpressionFormatting",
+            "request": "launch",
+            "mainClass": "ExpressionFormatting"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Sorting",
+            "request": "launch",
+            "mainClass": "Sorting"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - MergeSort",
+            "request": "launch",
+            "mainClass": "MergeSort"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - EndOfFile",
             "request": "launch",
             "mainClass": "EndOfFile"
