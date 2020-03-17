@@ -1,6 +1,9 @@
-for i in range(1,4):
-    for j in range(3-i):
-        print(' ',end='')
-    for k in range(1,2*i):
-        print('*',end='')
-    print()
+x = int(input('Enter the number of Students : '))
+li = []
+for i in range(x):
+    tmp = int(input("Enter Marks of "+str(i)+" student : "))
+    li.append(tmp)
+sum = 0
+for i in range(len(li)):
+    sum = sum + li[i]
+print(sum / len(li))
