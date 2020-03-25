@@ -2,6 +2,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "CodeLens (Launch) - TwoSum",
+            "request": "launch",
+            "mainClass": "TwoSum",
+            "projectName": "Competitive-Coding_416a9974"
+        },
+        {
+            "type": "java",
             "name": "CodeLens (Launch) - BeautifulInteger",
             "request": "launch",
             "mainClass": "BeautifulInteger"
