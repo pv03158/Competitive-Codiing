@@ -1,3 +1,5 @@
+// SOLUTION OF SPOJ PROBLEM - 1 : LIFE, THE UNIVERSE, THE EVERYTHING
+
 import java.util.*;
 
 public class LifeUniverseTheEverything {
