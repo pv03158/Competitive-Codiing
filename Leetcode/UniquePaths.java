@@ -1,9 +1,9 @@
 class Solution {
     public int uniquePaths(int m, int n) {
-        return getMazePath(0 ,0 , m - 1, n - 1 , new int[m][n]);
+        return getPathCount(0 ,0 , m - 1, n - 1 , new int[m][n]);
     }
     
-    public int getMazePath(int sr, int sc, int er, int ec, int dp[][]) {
+    public int getPathCount(int sr, int sc, int er, int ec, int dp[][]) {
         if(sr == er && sc == ec)
             return 1;
         
@@ -11,8 +11,8 @@ class Solution {
             return dp[sr][sc];
         
         int count = 0;
-        if(sr < er ) count += getMazePath(sr + 1, sc , er ,ec, dp);
-        if(sc < ec ) count += getMazePath(sr, sc + 1, er, ec, dp);
+        if(sr < er ) count += getPathCount(sr + 1, sc , er ,ec, dp);
+        if(sc < ec ) count += getPathCount(sr, sc + 1, er, ec, dp);
         
         dp[sr][sc] = count;
         return count;
