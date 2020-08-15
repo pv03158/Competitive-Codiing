@@ -6,32 +6,31 @@ public class WordBreakProblem {
         String str = scn.nextLine();
 
         HashMap<String, Boolean> hashmap = new HashMap<>();
-        for(int idx = 0 ; idx < dictionary.length ; idx++) 
+        for (int idx = 0; idx < dictionary.length; idx++)
             hashmap.put(dictionary[idx], true);
 
         isStringCanSegmented(str, hashmap);
     }
 
-    public static String[] dictionary = { "i","like","sam","sung","samsung","mobile",
-                                        "ice","cream","icecream","man","go","mango" };
+    public static String[] dictionary = { "i", "like", "sam", "sung", "samsung", "mobile", "ice", "cream", "icecream",
+            "man", "go", "mango" };
 
     public static void isStringCanSegmented(String str, HashMap<String, Boolean> hashmap) {
         int lb = 0;
         int ub = 0;
         boolean flag = false;
 
-        for( ; ub < str.length() ; ub++) {
-            if(hashmap.containsKey(str.substring(lb,ub+1))) {
+        for (; ub < str.length(); ub++) {
+            if (hashmap.containsKey(str.substring(lb, ub + 1))) {
                 flag = true;
                 lb = ub + 1;
-            }
-            else 
+            } else
                 flag = false;
         }
 
-        if(flag)
+        if (flag)
             System.out.println("Yes");
-        else    
+        else
             System.out.println("No");
     }
 }
