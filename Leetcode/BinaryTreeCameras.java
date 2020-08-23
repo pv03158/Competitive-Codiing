@@ -24,19 +24,6 @@ class Solution {
         // handling base conditions
         if(node == null)
             return;
-        if(node.left == node.right && parent == null) {
-            cameraCounter += 1;
-            node.val = 1;
-            return;
-        }
-        if(node.left == node.right && parent != null ) {
-            if(parent.val != 1) {
-                cameraCounter += 1;
-                parent.val = 1;
-            }
-            return;
-        }
-        
         
         helper(node.left, node);
         helper(node.right, node);
