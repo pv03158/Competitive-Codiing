@@ -1,3 +1,37 @@
+// APPROACH -- 1
+class Solution {
+    public int largestRectangleArea(int[] arr) {
+        
+        Stack<Integer> stack = new Stack<>();
+        stack.push(-1);
+        
+        // MAX-AREA VARIABLE
+        int maxarea = 0;
+        
+        // ITERATING OVER THE ELEMENTS
+        for(int idx = 0 ; idx < arr.length ; idx++) {
+            while( stack.peek() != -1 && arr[stack.peek()] >= arr[idx] ) {
+                int ele = stack.pop();
+                int area = (idx - stack.peek() - 1) * arr[ele];
+                maxarea = Math.max(maxarea, area);
+            }
+            
+            stack.push(idx);
+        }
+        
+        // DEALING WITH LEFT OUT ELEMENTS OF STACK
+        while(stack.size() != 1) {
+            int ele = stack.pop();
+            int area = (arr.length - stack.peek() - 1) * arr[ele];
+            maxarea = Math.max(maxarea, area);
+        }
+        
+        // RETURNING OUTPUT
+        return maxarea;
+    }
+}
+
+// APPROACH -- 2
 class Solution {
     public int largestRectangleArea(int[] heights) {
         
