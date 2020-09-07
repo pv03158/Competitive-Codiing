@@ -1,20 +1,72 @@
 class Solution {
     public int uniquePaths(int m, int n) {
-        return getPathCount(0 ,0 , m - 1, n - 1 , new int[m][n]);
+        int dp[][] = new int[m + 1][n + 1];
+        int ans = helperTabulation(m, n);
+        
+        // PRINTING DP
+        // for(int[] arr : dp)
+        //     System.out.println(Arrays.toString(arr));
+        
+        return ans;
     }
     
-    public int getPathCount(int sr, int sc, int er, int ec, int dp[][]) {
-        if(sr == er && sc == ec)
+    // RECURSIVE SOLUTION OF THE PROBLEM
+    private int helperRecursive(int m, int n, int row, int col) {
+        // MANAGING CORNER CASES
+        if(row >= m || col >= n)
+            return 0;
+        if(row == m - 1 && col == n - 1 )
             return 1;
         
-        if(dp[sr][sc] != 0)
-            return dp[sr][sc];
+        // IF MOVING IN DOWN DIRECTION
+        int down = helperRecursive(m, n, row + 1, col);
+        // IF MOVING IN RIGHT DIRECTION
+        int right = helperRecursive(m, n , row, col + 1);
+        return down + right;
+    }
+    
+    // MEMOIZED SOLUTION OF THE PROBLEM
+    private int helperMemoized(int m, int n, int row, int col, int[][] dp) {
+        // MANAGING CORNER CASES
+        if(row >= m || col >= n)
+            return 0;
+        if(row == m - 1 && col == n - 1 )
+            return 1;
         
-        int count = 0;
-        if(sr < er ) count += getPathCount(sr + 1, sc , er ,ec, dp);
-        if(sc < ec ) count += getPathCount(sr, sc + 1, er, ec, dp);
+        // CHECKING WHETHER SOLUTION EXISTS IN DP
+        if(dp[row][col] != 0)
+            return dp[row][col];
         
-        dp[sr][sc] = count;
-        return count;
+        // IF MOVING IN DOWN DIRECTION
+        int down = helperMemoized(m, n, row + 1, col, dp);
+        // IF MOVING IN RIGHT DIRECTION
+        int right = helperMemoized(m, n , row, col + 1, dp);
+        
+        return dp[row][col] = down + right;
+    }
+    
+    // TABULIZED SOLUTION OF THE PROBLEM
+    private int helperTabulation(int m, int n) {
+        
+        int dp[][] = new int[m + 1][n + 1];
+        
+        for(int row = m - 1; row >= 0 ; row --) {
+            for(int col = n -1 ; col >= 0 ; col --) {
+                // MANAGING CORNER CASES
+                if(row == m - 1 && col == n - 1 ) {
+                    dp[row][col] = 1;
+                    continue;
+                }
+
+                // IF MOVING IN UP DIRECTION
+                int up = dp[row + 1][col];
+                // IF MOVING IN LEFT DIRECTION
+                int left = dp[row][col + 1];
+
+                dp[row][col] = up + left;       
+            }    
+        }
+        
+        return dp[0][0];
     }
 }
