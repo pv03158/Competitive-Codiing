@@ -1,0 +1,34 @@
+#include <iostream>
+#include <string>
+#include <vector>
+
+#define BigInteger signed long long int
+using namespace std;
+int
+main(int argc, char* argv[]) {
+    BigInteger t;
+    cin >> t;
+
+    while(t--) {
+        // TAKING INPUT FROM USER
+        BigInteger length;
+        string needle, haystack;
+        cin >> length;
+        cin.ignore(256, '\n');
+
+        cin >> needle >> haystack;
+        // PROCESSING OUTPUT
+        hash <string> compute_hash;
+        BigInteger needle_hash = compute_hash(needle);
+        BigInteger idx = 0;
+        while(idx <= (BigInteger) haystack.length() - length) {
+            string substr = haystack.substr(idx, length);
+            if( compute_hash(substr) == needle_hash ) 
+                cout << idx << endl;
+            idx += 1;
+        }
+
+        if(idx == 0)   
+            cout << endl;
+    }
+}
