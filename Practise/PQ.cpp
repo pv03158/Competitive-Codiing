@@ -12,7 +12,7 @@ main(int argc, char* argv[]) {
     pq.push(20);
 
     while(pq.size() != 0) {
-        cout << pq.front() << endl;
+        cout << pq.top() << endl;
         pq.pop();
     }
 }
