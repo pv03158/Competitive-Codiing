@@ -1,0 +1,10 @@
+4 3
+<tag1 value = "HelloWorld" name = "Prashant">
+<tag2 name = "Name1">
+</tag2>
+<tag3 name = "Name1">
+</tag3>
+</tag1>
+tag1.tag2~name
+tag1~name
+tag1~value
