@@ -17,6 +17,7 @@ main(int argc, char* argv[]) {
     cout.tie(0);
     // TAKING INPUT FROM CONSOLE
     int t, n, k;
+
     cin >> t;
     while(t--) {
         // EVALUATING EACH TEST CASE
@@ -24,7 +25,7 @@ main(int argc, char* argv[]) {
         cin >> n >> k;
         for(int i = 1 ; i <= n; i++) 
             for(int j = 1 ; j <= n ; j++) 
-                res += binomialcoeff(abs(j - i) + k, k);
+                    res += binomialcoeff(abs(j - i) + k, k);
 
         cout << res << endl; 
     }
